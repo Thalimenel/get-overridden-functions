@@ -1,5 +1,9 @@
 # retrieve all overridden functions in the browser
 
+## Install
+```shell
+npm i get-overridden-functions
+```
 
 ## Usage
 ```javascript
