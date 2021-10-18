@@ -1,6 +1,6 @@
 {
   "name": "get-overridden-functions",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "retrieve all overridden functions in the browser",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

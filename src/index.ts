@@ -14,7 +14,7 @@ const getOverridden = () => {
                 return;
             }
         }
-        if (!(typeof realValue === 'function' && /function \w+\(\) \{ \[native code\] \}/.test(Function.prototype.toString.call(realValue)))) {
+        if (!(typeof realValue === 'function' && /function \w*\(\) \{ \[native code\] \}/.test(Function.prototype.toString.call(realValue)))) {
             result.push(propArray);
         }
     });
