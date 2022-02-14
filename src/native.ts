@@ -48,9 +48,21 @@ const goThroughProps = (obj: any, doPrototype = false, cache: Set<any>) => {
     return props;
 }
 
+const createIframe = () => {
+    let iframe;
+    try {
+        iframe = document.createElement('iframe');
+        document.head.appendChild(iframe);
+    }
+    catch (err) {
+        document.head.insertAdjacentHTML('beforeend', `<iframe id="csta-iframe"></iframe>`)
+        iframe = document.querySelector('iframe#csta-iframe') as HTMLIFrameElement
+    }
+    return iframe;
+}
+
 const getNativeProps = () => {
-    const iframe = document.createElement('iframe');
-    document.head.appendChild(iframe);
+    let iframe = createIframe();
     const cleanWindow = iframe.contentWindow;
 
     const cache = new Set();
@@ -61,6 +73,7 @@ const getNativeProps = () => {
         props = goThroughProps(cleanWindow, true, cache);
 
     }
+    iframe.remove();
     return props;
 
 }
