@@ -23,6 +23,7 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
+    "declare.d.ts",
     "src"
   ]
 }

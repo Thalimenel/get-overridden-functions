@@ -1,5 +1,7 @@
+let cleanWindow: HTMLIFrameElement["contentWindow"];
+
 const isPrototypeOk = (func: Function) => {
-    return !!(func.prototype && Object.keys(func.prototype).find(key => key !== 'constructor'));
+    return !!(func.prototype && (cleanWindow as Window).Object.keys(func.prototype).find(key => key !== 'constructor'));
 }
 
 const isNotWindowOrDocument = (obj: any) => {
@@ -63,7 +65,7 @@ const createIframe = () => {
 
 const getNativeProps = () => {
     let iframe = createIframe();
-    const cleanWindow = iframe.contentWindow;
+    cleanWindow = iframe.contentWindow;
 
     const cache = new Set();
 
